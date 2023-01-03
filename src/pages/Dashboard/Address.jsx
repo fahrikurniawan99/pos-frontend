@@ -3,8 +3,6 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Select from "react-select";
 import { getAddress, postAddress } from "../../app/api/address";
-import { getCart } from "../../app/api/cart";
-import { getOrder } from "../../app/api/order";
 
 const Address = () => {
   const [address, setAddress] = useState("");
