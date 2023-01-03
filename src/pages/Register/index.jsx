@@ -42,7 +42,7 @@ const Register = () => {
                 <CustomInput
                   label="email"
                   name="email"
-                  placeholder="contoh@gmail.com"
+                  placeholder="johndoe@gmail.com"
                 />
                 <CustomInput
                   label="password"

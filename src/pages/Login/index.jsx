@@ -37,7 +37,7 @@ const Login = () => {
                 <CustomInput
                   label="email"
                   name="email"
-                  placeholder="contoh@gmail.com"
+                  placeholder="johndoe@gmail.com"
                   />
                 <CustomInput
                   type="password"

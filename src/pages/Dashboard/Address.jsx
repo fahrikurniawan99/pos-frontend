@@ -3,6 +3,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Select from "react-select";
 import { getAddress, postAddress } from "../../app/api/address";
+import Loading from "../../components/Loading";
 
 const Address = () => {
   const [address, setAddress] = useState("");
@@ -106,7 +107,7 @@ const Address = () => {
   };
 
   return (
-    <div className="px-[10px] pb-5 md:px-0">
+    <div className="px-[10px] pb-5 md:px-0 h-full">
       <div
         className={`${
           addMode ? "hidden" : "flex"
@@ -120,7 +121,7 @@ const Address = () => {
           Tambah
         </button>
       </div>
-      <div className="mt-10 space-y-5">
+      <div className="mt-10 space-y-5 h-full">
         {addMode ? (
           <form onSubmit={addAddress}>
             <div className="space-y-8">
@@ -204,7 +205,7 @@ const Address = () => {
             </div>
           </form>
         ) : loading ? (
-          <p>Loading...</p>
+          <div className="w-full h-full flex justify-center items-center"><Loading /></div>
         ) : address.length ? (
           <>
             {address.map((alamat) => {
