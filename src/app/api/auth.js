@@ -1,10 +1,12 @@
 import axios from "axios";
 
+const baseURL = "https://eduworkbe.vercel.app/auth";
+
 const authPost = (url, data, isAuth) => {
   return new Promise((resolve, reject) => {
     axios({
       method: "post",
-      baseURL: "http://localhost:4000/auth",
+      baseURL,
       url,
       data,
     })
@@ -17,7 +19,7 @@ const authGet = (url) => {
     const token = localStorage.getItem("token");
     axios({
       method: "get",
-      baseURL: "http://localhost:4000/auth",
+      baseURL,
       url,
       headers: { Authorization: `Bearer ${token}` },
     })
