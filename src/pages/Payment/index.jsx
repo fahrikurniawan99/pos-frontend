@@ -1,14 +1,12 @@
-import { Dialog, RadioGroup, Transition } from "@headlessui/react";
+import { RadioGroup } from "@headlessui/react";
 import {
-  CheckCircleIcon as CheckCircleIconOutline,
-  ShoppingBagIcon,
-  XMarkIcon,
+  CheckCircleIcon as CheckCircleIconOutline
 } from "@heroicons/react/24/outline";
 import { CheckCircleIcon } from "@heroicons/react/24/solid";
 import axios from "axios";
-import React, { Fragment, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { getAddress } from "../../app/api/address";
 import { getCart } from "../../app/api/cart";
 import { ADD_SUB_TOTAL } from "../../app/features/cart/constants";
@@ -20,7 +18,6 @@ import { useCart } from "../../hooks";
 const Payment = () => {
   const [address, setAddress] = useState("");
   const [myAddress, setMyAddress] = useState("");
-  const [isOpen, setIsOpen] = useState(false);
   const { subTotal } = useCart();
   const [carts, setCarts] = useState("");
   const [isLoading, setIsLoading] = useState(true);

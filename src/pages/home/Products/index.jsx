@@ -6,9 +6,8 @@ import { addCartItem } from "../../../app/features/cart/actions";
 import {
   fetchCategory,
   fetchProduct,
-  fetchTag,
+  fetchTag
 } from "../../../app/features/Product/actions";
-import RupiahFormat from "../../../app/RupiahFormat";
 import CardProduct from "../../../components/CardProduct";
 import { useAuth, useCart, useProduct } from "../../../hooks";
 
