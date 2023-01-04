@@ -8,6 +8,7 @@ import {
   fetchProduct,
   fetchTag,
 } from "../../../app/features/Product/actions";
+import RupiahFormat from "../../../app/RupiahFormat";
 import CardProduct from "../../../components/CardProduct";
 import { useAuth, useCart, useProduct } from "../../../hooks";
 
@@ -19,6 +20,7 @@ const Products = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const Auth = useAuth();
   const navigate = useNavigate();
+
 
   useEffect(() => {
     dispatch(fetchProduct());

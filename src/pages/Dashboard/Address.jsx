@@ -107,7 +107,7 @@ const Address = () => {
   };
 
   return (
-    <div className="px-[10px] pb-5 md:px-0 h-full">
+    <div className="h-full px-[10px] pb-5 md:px-0">
       <div
         className={`${
           addMode ? "hidden" : "flex"
@@ -121,7 +121,7 @@ const Address = () => {
           Tambah
         </button>
       </div>
-      <div className="mt-10 space-y-5 h-full">
+      <div className="mt-10 h-full space-y-5">
         {addMode ? (
           <form onSubmit={addAddress}>
             <div className="space-y-8">
@@ -205,7 +205,9 @@ const Address = () => {
             </div>
           </form>
         ) : loading ? (
-          <div className="w-full h-full flex justify-center items-center"><Loading /></div>
+          <div className="flex h-full w-full items-center justify-center">
+            <Loading />
+          </div>
         ) : address.length ? (
           <>
             {address.map((alamat) => {

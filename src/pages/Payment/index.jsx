@@ -12,6 +12,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { getAddress } from "../../app/api/address";
 import { getCart } from "../../app/api/cart";
 import { ADD_SUB_TOTAL } from "../../app/features/cart/constants";
+import RupiahFormat from "../../app/RupiahFormat";
 import Loading from "../../components/Loading";
 import config from "../../config";
 import { useCart } from "../../hooks";
@@ -108,14 +109,21 @@ const Payment = () => {
                 return (
                   <RadioGroup.Option key={value._id} value={value.name}>
                     {({ checked }) => (
-                      <span className={checked ? activeClass : baseClass}>
-                        {value.name}
-                        {checked ? (
-                          <CheckCircleIcon className="w-5" />
-                        ) : (
-                          <CheckCircleIconOutline className="w-5" />
-                        )}
-                      </span>
+                      <div className={checked ? activeClass : baseClass}>
+                        <div className="w-10/12">
+                          <span>{value.name}</span>
+                          <p className="break-words">
+                            {`${value.detail} ${value.kelurahan} ${value.kecamatan} ${value.kabupaten} ${value.provinsi}`}
+                          </p>
+                        </div>
+                        <div className="w-1/12">
+                          {checked ? (
+                            <CheckCircleIcon className="w-5 mx-auto" />
+                          ) : (
+                            <CheckCircleIconOutline className="w-5 mx-auto" />
+                          )}
+                        </div>
+                      </div>
                     )}
                   </RadioGroup.Option>
                 );
@@ -147,16 +155,16 @@ const Payment = () => {
             <div className="fixed bottom-0 left-0 mt-auto flex w-full flex-col border-t bg-white py-5 px-[10px] lg:static lg:px-0">
               <div className="mb-2 flex justify-between text-lg font-semibold text-gray-500">
                 <span>Ongkir</span>
-                <span className="text-gray-900">Rp. 20000</span>
+                <span className="text-gray-900">{RupiahFormat(20000)}</span>
               </div>
               <div className="mb-5 flex justify-between text-lg font-semibold text-gray-500">
                 <span>Subtotal</span>
-                <span className="text-gray-900">{`Rp. ${subTotal}`}</span>
+                <span className="text-gray-900">{RupiahFormat(subTotal)}</span>
               </div>
               <button
                 onClick={createOrder}
                 className="ml-auto rounded bg-indigo-600 px-14 py-3 font-medium text-white transition-all duration-300 hover:scale-105"
-              >{`Rp. ${subTotal + 20000}`}</button>
+              >{RupiahFormat(subTotal + 20000)}</button>
             </div>
           </div>
         </div>

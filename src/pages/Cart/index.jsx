@@ -9,6 +9,7 @@ import {
   deleteCartItem,
   removeQty,
 } from "../../app/features/cart/actions";
+import RupiahFormat from "../../app/RupiahFormat";
 import Loading from "../../components/Loading";
 import { useCart } from "../../hooks";
 
@@ -67,8 +68,8 @@ const Cart = () => {
               />
               <h2 className="order-1 mt-2 w-full truncate text-lg md:order-none lg:mt-0">
                 {cart.name}
-              </h2>
-              <p>{cart.price}</p>
+              </h2> 
+              <p>{RupiahFormat(cart.price)}</p>
               <div className="space-x-1 lg:space-x-4">
                 <button
                   onClick={() => dispatch(addQty(cart.product))}

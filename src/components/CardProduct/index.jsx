@@ -1,5 +1,6 @@
 import { PlusIcon } from "@heroicons/react/24/solid";
 import React from "react";
+import RupiahFormat from "../../app/RupiahFormat";
 
 const ProductCard = ({
   image,
@@ -51,7 +52,7 @@ const ProductCardTags = ({ tags }) => (
 
 const ProductCardFooter = ({ price, addToCartAction }) => (
   <div className="mt-auto flex items-center justify-between text-lg font-bold text-gray-900">
-    <span>{`Rp. ${price}`}</span>
+    <span>{RupiahFormat(price)}</span>
     <button
       onClick={addToCartAction}
       className="rounded-lg bg-indigo-700 p-3 text-white transition-all duration-300 hover:bg-indigo-600 focus:ring focus:ring-indigo-200"

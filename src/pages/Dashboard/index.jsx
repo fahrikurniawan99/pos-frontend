@@ -56,15 +56,15 @@ const Dashboard = () => {
         >
           POS
         </Link>
-        <Navigation to="/dashboard/profile">
+        <Navigation onClick={() => setIsOpen(false)} to="/dashboard/profile">
           <UserIcon className="w-4 stroke-2" />
           Profile
         </Navigation>
-        <Navigation to="/dashboard/orders">
+        <Navigation onClick={() => setIsOpen(false)} to="/dashboard/orders">
           <ArrowPathIcon className="w-4 stroke-2" />
           Order History
         </Navigation>
-        <Navigation to="/dashboard/address">
+        <Navigation onClick={() => setIsOpen(false)} to="/dashboard/address">
           <IdentificationIcon className="w-4 stroke-2" />
           Address
         </Navigation>
@@ -99,9 +99,10 @@ const Dashboard = () => {
   );
 };
 
-const Navigation = ({ children, to }) => (
+const Navigation = ({ children, to, onClick }) => (
   <NavLink
     to={to}
+    onClick={onClick}
     className={({ isActive }) =>
       isActive
         ? "my-3 flex items-center gap-x-2 rounded-lg bg-gray-100 py-2 pl-8 font-medium text-gray-900"
