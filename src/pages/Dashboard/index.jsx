@@ -26,7 +26,7 @@ const Dashboard = () => {
       const token = localStorage.getItem("token");
       await axios({
         method: "post",
-        baseURL: "http://localhost:4000/auth",
+        baseURL: "https://eduworkbe.vercel.app/auth",
         url: "/logout",
         headers: { Authorization: `Bearer ${token}` },
       });
