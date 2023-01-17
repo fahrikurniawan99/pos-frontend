@@ -1,35 +1,17 @@
 import axios from "axios";
-import config from "../../config";
 
-const getAddress = (url) =>
-  new Promise((resolve, reject) => {
-    const token = localStorage.getItem("token");
-    axios({
-      method: "get",
-      baseURL: config.BASE_URL,
-      url,
-      headers: { Authorization: `Bearer ${token}` },
-    })
-      .then(({ data }) => {
-        resolve(data);
-      })
-      .catch((error) => reject(error.response.data.message));
-  });
+export const getProvinces = async () =>
+  await axios("http://www.emsifa.com/api-wilayah-indonesia/api/provinces.json");
 
-const postAddress = (url, data) =>
-  new Promise((resolve, reject) => {
-    const token = localStorage.getItem("token");
-    axios({
-      method: "post",
-      baseURL: config.BASE_URL,
-      url,
-      headers: { Authorization: `Bearer ${token}` },
-      data,
-    })
-      .then(({ data }) => {
-        resolve(data);
-      })
-      .catch((error) => reject(error.response.data.message));
-  });
-
-export { getAddress, postAddress };
+export const getRegencies = async (id) =>
+  await axios(
+    `http://www.emsifa.com/api-wilayah-indonesia/api/regencies/${id}.json`
+  );
+export const getDistricts = async (id) =>
+  await axios(
+    `http://www.emsifa.com/api-wilayah-indonesia/api/districts/${id}.json`
+  );
+export const getVillages = async (id) =>
+  await axios(
+    `http://www.emsifa.com/api-wilayah-indonesia/api/villages/${id}.json`
+  );

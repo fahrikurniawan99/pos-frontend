@@ -4,7 +4,7 @@ const Loading = () => {
   return (
     <div role="status">
       <svg
-        className="inline mr-2 w-8 h-8 text-gray-100 animate-spin dark:text-gray-600 fill-indigo-600"
+        className="mr-2 inline h-8 w-8 animate-spin fill-white text-indigo-600 dark:text-gray-600"
         viewBox="0 0 100 101"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

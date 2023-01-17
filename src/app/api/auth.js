@@ -1,31 +1,25 @@
 import axios from "axios";
+import config from "../../config";
 
-const baseURL = "https://eduworkbe.vercel.app/auth";
 
-const authPost = (url, data, isAuth) => {
-  return new Promise((resolve, reject) => {
-    axios({
-      method: "post",
-      baseURL,
-      url,
-      data,
-    })
-      .then(({ data }) => resolve(data))
-      .catch((error) => reject(error.response.data.message));
-  });
-};
-const authGet = (url) => {
-  return new Promise((resolve, reject) => {
-    const token = localStorage.getItem("token");
-    axios({
-      method: "get",
-      baseURL,
-      url,
+const loginUser = async (data) =>
+  await axios.post(`${config.authBaseUrl}/login`, data);
+
+const registerUser = async (data) =>
+  await axios.post(`${config.authBaseUrl}/register`, data);
+
+const logoutUser = async () => {
+  const { token } = localStorage.getItem("auth")
+    ? JSON.parse(localStorage.getItem("auth"))
+    : {};
+  return await axios
+    .post(`${config.authBaseUrl}/logout`, null, {
       headers: { Authorization: `Bearer ${token}` },
     })
-      .then(({ data }) => resolve(data))
-      .catch((error) => reject(error.message));
-  });
+    .then((res) => {
+      localStorage.removeItem("auth");
+      return res;
+    });
 };
 
-export { authPost, authGet };
+export { loginUser, registerUser, logoutUser };
