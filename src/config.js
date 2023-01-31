@@ -1,7 +1,7 @@
 const config = {
-  BASE_URL: "http://localhost:4000/api",
-  apiBaseUrl: "http://localhost:4000/api",
-  authBaseUrl: "http://localhost:4000/auth",
+  BASE_URL: "https://eduworkbe.vercel.app/api",
+  apiBaseUrl: "https://eduworkbe.vercel.app/api",
+  authBaseUrl: "https://eduworkbe.vercel.app/auth",
 };
 
 export default config;
